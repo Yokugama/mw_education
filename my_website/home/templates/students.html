@@ -1,0 +1,53 @@
+{% extends 'homebase.html' %}
+
+{% load static %}
+{% block about %}
+
+<!-- page title -->
+<section class="page-title-section overlay" data-background="{% static 'images/backgrounds/page-title.jpg' %}">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+          <ul class="list-inline custom-breadcrumb">
+            <li class="list-inline-item"><a class="h2 text-primary font-secondary" href="@@page-link">Our Students</a></li>
+            <li class="list-inline-item text-white h3 font-secondary @@nasted"></li>
+          </ul>
+          <p class="text-lighten">Our courses offer a good compromise between the continuous assessment favoured by some universities and the emphasis placed on final exams by others.</p>
+        </div>
+      </div>
+    </div>
+</section>
+<!-- /page title -->
+
+
+<section class="section">
+  <div class="container">
+    <!-- course list -->
+<div class="row justify-content-center">
+  <!-- course item -->
+  {% for rs in student_cr %}
+  <div class="col-lg-4 col-sm-6 mb-5">
+    <div class="card p-0 border-primary rounded-0 hover-shadow">
+      <img class="card-img-top rounded-0" src="{{ rs.image.url }}" alt="course thumb">
+      <div class="card-body">
+        <a href="#">
+          <h4 class="card-title">{{ rs.name | safe}}</h4>
+        </a>
+        <p class="card-text mb-4">{{ rs.subject | safe}}</p>
+        <ul class="list-inline">
+          <li class="list-inline-item"><a class="text-color" href="#"><i class="ti-facebook"></i></a></li>
+          <li class="list-inline-item"><a class="text-color" href="#"><i class="ti-twitter-alt"></i></a></li>
+          <li class="list-inline-item"><a class="text-color" href="#"><i class="ti-google"></i></a></li>
+          <li class="list-inline-item"><a class="text-color" href="#"><i class="ti-linkedin"></i></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+  <!-- course item -->    
+</div>
+      <!-- /course list -->
+  </div>
+</section>
+
+{% endblock %}
